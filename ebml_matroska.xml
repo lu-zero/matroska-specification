@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <EBMLSchema docType="matroska" version="4">
+  <!-- EBML Header -->
+  <element name="EBML" path="1*1(\EBML)" id="0x1A45DFA3" minOccurs="1" maxOccurs="1" type="master"/>
+  <element name="EBMLVersion" path="1*1(\EBML\EBMLVersion)" id="0x4286" minOccurs="1" maxOccurs="1" range="not 0" default="1" type="uinteger"/>
+  <element name="EBMLReadVersion" path="1*1(\EBML\EBMLReadVersion)" id="0x42F7" minOccurs="1" maxOccurs="1" range="1" default="1" type="uinteger"/>
+  <element name="EBMLMaxIDLength" path="1*1(\EBML\EBMLMaxIDLength)" id="0x42F2" minOccurs="1" maxOccurs="1" range=">=4" default="4" type="uinteger"/>
+  <element name="EBMLMaxSizeLength" path="1*1(\EBML\EBMLMaxSizeLength)" id="0x42F3" minOccurs="1" maxOccurs="1" range="1-8" default="8" type="uinteger"/>
+  <element name="DocType" path="1*1(\EBML\DocType)" id="0x4282" minOccurs="1" maxOccurs="1" size=">0" type="string"/>
+  <element name="DocTypeVersion" path="1*1(\EBML\DocTypeVersion)" id="0x4287" minOccurs="1" maxOccurs="1" default="1" type="uinteger"/>
+  <element name="DocTypeReadVersion" path="1*1(\EBML\DocTypeReadVersion)" id="0x4285" minOccurs="1" maxOccurs="1" default="1" type="uinteger"/>
+  <element name="CRC-32" path="1*1(\EBML\EBMLReadVersion)" id="0xBF" minOccurs="0" maxOccurs="1" size="4" type="binary"/>
+  <element name="Void" path="*((*\)\Void)" id="0xEC" minOccurs="0" type="binary"/>
+  <!-- Root Element-->
   <element name="Segment" path="1*1(\Segment)" id="0x18538067" type="master" unknownsizeallowed="1" minOccurs="1" maxOccurs="1" minver="1">
     <documentation lang="en">The Root Element that contains all other Top-Level Elements (Elements defined only at Level 1). A Matroska file is composed of 1 Segment.</documentation>
   </element>
